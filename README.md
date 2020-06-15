@@ -1,2 +1,2 @@
-# pagseguro-go
+# pagseguro
 PagSeguro GO SDK
