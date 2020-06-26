@@ -13,7 +13,8 @@ import (
 // GetToken GetToken
 func (item *sessions) GetToken() (*string, error) {
 	url := fmt.Sprintf(
-		"%s/sessions?email=%s&token=%s",
+		"%s%s?email=%s&token=%s",
+		path,
 		item.url,
 		item.email,
 		item.token,
