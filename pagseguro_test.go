@@ -8,7 +8,7 @@ import (
 
 func TestPagseguroProduction(t *testing.T) {
 	input := PagseguroInput{
-		Env:   0,
+		Env:   Production,
 		Email: "email@email.com.br",
 		Token: "98ouyhbouihb07ho8yb879b",
 	}
@@ -22,7 +22,7 @@ func TestPagseguroProduction(t *testing.T) {
 
 func TestPagseguroSandbox(t *testing.T) {
 	input := PagseguroInput{
-		Env:   1,
+		Env:   Sandbox,
 		Email: "email@email.com.br",
 		Token: "98ouyhbouihb07ho8yb879b",
 	}
