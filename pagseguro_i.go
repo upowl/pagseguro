@@ -15,7 +15,7 @@ const (
 
 // Pagseguro Pagseguro
 type Pagseguro interface {
-	GetURL() urlEnv
+	GetURL() string
 	GetEmail() string
 	GetToken() string
 }

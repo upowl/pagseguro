@@ -1,5 +1,7 @@
 package pagseguro
 
+import "fmt"
+
 type pagseguro struct {
 	environment environment
 	email       string
@@ -7,14 +9,14 @@ type pagseguro struct {
 }
 
 // GetURL GetURL
-func (item *pagseguro) GetURL() urlEnv {
+func (item *pagseguro) GetURL() string {
 	switch item.environment {
 	case Production:
-		return productionURL
+		return fmt.Sprintf("%v", productionURL)
 	case Sandbox:
-		return sandboxURL
+		return fmt.Sprintf("%v", sandboxURL)
 	default:
-		return sandboxURL
+		return fmt.Sprintf("%v", sandboxURL)
 	}
 }
 
