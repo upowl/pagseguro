@@ -84,18 +84,48 @@ type Bank struct {
 	Name    string   `xml:"name"`
 }
 
+// Installment Installment
+type Installment struct {
+	XMLName                       xml.Name `xml:"installment"`
+	Text                          string   `xml:",chardata"`
+	Quantity                      string   `xml:"quantity"`
+	Value                         string   `xml:"value"`
+	NoInterestInstallmentQuantity string   `xml:"noInterestInstallmentQuantity"`
+}
+
+// Holder Holder
+type Holder struct {
+	XMLName   xml.Name  `xml:"holder"`
+	Text      string    `xml:",chardata"`
+	Name      string    `xml:"name"`
+	Documents Documents `xml:"documents"`
+	BirthDate string    `xml:"birthDate"`
+	Phone     Phone     `xml:"phone"`
+}
+
+// CreditCard CreditCard
+type CreditCard struct {
+	XMLName        xml.Name    `xml:"creditCard"`
+	Text           string      `xml:",chardata"`
+	Token          string      `xml:"token"`
+	Installment    Installment `xml:"installment"`
+	Holder         Holder      `xml:"holder"`
+	BillingAddress Address     `xml:"billingAddress"`
+}
+
 // Payment Payment
 type Payment struct {
-	XMLName         xml.Name `xml:"payment"`
-	Text            string   `xml:",chardata"`
-	Mode            string   `xml:"mode"`
-	Method          string   `xml:"method"`
-	Bank            Bank     `xml:"bank"`
-	Sender          Sender   `xml:"sender"`
-	Currency        string   `xml:"currency"`
-	NotificationURL string   `xml:"notificationURL"`
-	Items           Items    `xml:"items"`
-	ExtraAmount     string   `xml:"extraAmount"`
-	Reference       string   `xml:"reference"`
-	Shipping        Shipping `xml:"shipping"`
+	XMLName         xml.Name   `xml:"payment"`
+	Text            string     `xml:",chardata"`
+	Mode            string     `xml:"mode"`
+	Method          string     `xml:"method"`
+	Bank            Bank       `xml:"bank"`
+	Sender          Sender     `xml:"sender"`
+	Currency        string     `xml:"currency"`
+	NotificationURL string     `xml:"notificationURL"`
+	Items           Items      `xml:"items"`
+	ExtraAmount     string     `xml:"extraAmount"`
+	Reference       string     `xml:"reference"`
+	Shipping        Shipping   `xml:"shipping"`
+	CreditCard      CreditCard `xml:"creditCard"`
 }
