@@ -1,6 +1,7 @@
 package sessions
 
 import (
+	"os"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -10,8 +11,8 @@ import (
 func TestPagseguroSessions(t *testing.T) {
 	pagseguroInput := pagseguro.PagseguroInput{
 		Env:   pagseguro.Sandbox,
-		Email: "email@email.com.br",
-		Token: "aksdjlaskdjlkasjd",
+		Email: os.Getenv("PAGSEGURO_EMAIL"),
+		Token: os.Getenv("PAGSEGURO_TOKEN"),
 	}
 
 	pag, _ := pagseguro.New(&pagseguroInput)
